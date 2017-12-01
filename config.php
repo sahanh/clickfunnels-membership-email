@@ -6,6 +6,12 @@
 $member_access_url    = 'http://demo.devquickie.com/test2?page_id=234234&page_key=asdasd&page_hash=234234&login_redirect=1';
 
 /**
+ * Which product id purchase should grant access?
+ * @var array
+ */
+$accessible_products  = ["1132163"];
+
+/**
  * Email details
  */
 $email_from_name     = "Sahan";

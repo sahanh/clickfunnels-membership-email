@@ -18,7 +18,14 @@ include_once __DIR__."/config.php";
  * DO NOT EDIT Anything below
  */
 
-$input    = json_decode(file_get_contents('php://input'), true);
+$input       = json_decode(file_get_contents('php://input'), true);
+
+$product_ids = array_get($input, "contact.additional_info.purchase.product_ids");
+
+if (count(array_intersect($accessible_products, $product_ids)) < 1) {
+    echo "No a valid product";
+    exit;
+}
 
 $password = str_random(8);
 
