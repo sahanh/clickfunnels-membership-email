@@ -12,6 +12,11 @@ if (!array_get($headers, "X-Clickfunnels-Webhook-Delivery-Id")) {
     exit;
 }
 
+if (strpos(array_get($_SERVER, "REQUEST_URI"), "/funnel_webhooks/test") !== false) {
+    echo "OK";
+    exit;
+}
+
 include_once __DIR__."/config.php";
 
 /**
