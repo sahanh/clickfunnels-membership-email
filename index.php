@@ -7,13 +7,13 @@ use GuzzleHttp\Exception\ConnectException;
 
 $headers = getallheaders();
 
-if (!array_get($headers, "X-Clickfunnels-Webhook-Delivery-Id")) {
-    echo "Not a valid CF webhook request";
+if (strpos(array_get($_SERVER, "REQUEST_URI"), "/funnel_webhooks/test") !== false) {
+    echo "OK";
     exit;
 }
 
-if (strpos(array_get($_SERVER, "REQUEST_URI"), "/funnel_webhooks/test") !== false) {
-    echo "OK";
+if (!array_get($headers, "X-Clickfunnels-Webhook-Delivery-Id")) {
+    echo "Not a valid CF webhook request";
     exit;
 }
 
